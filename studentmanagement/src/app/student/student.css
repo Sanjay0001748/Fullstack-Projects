@@ -1,0 +1,152 @@
+/* Bordered table */
+.bordered {
+  border-collapse: collapse;
+  width: 75%;
+}
+.bordered th,
+.bordered td {
+  border-bottom: 1px solid #333;
+  padding: 8px;
+  text-align: left;
+}
+/* tr:hover {
+  background-color: coral;
+} */
+.bordered th {
+  background-color: black;
+  color: white;
+}
+.delete {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.delete:hover {
+  background-color: #111;
+}
+p {
+  background-color: rgb(146, 235, 146);
+  color: white;
+}
+/* Modal overlay and container */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.56);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal box */
+.modal {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 92%;
+  max-width: 520px;
+  padding: 20px 22px;
+  box-shadow: 0 14px 36px rgba(8, 12, 20, 0.28);
+  position: relative;
+  animation: slideUp 180ms ease-out;
+}
+
+/* Close button (top-right) */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Modal form */
+.modal-form h2 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: #222;
+  font-weight: 600;
+}
+.form-row {
+  margin-bottom: 10px;
+}
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition:
+    box-shadow 120ms ease,
+    border-color 120ms ease;
+  background: #fff;
+}
+.form-row input:focus,
+.form-row select:focus {
+  outline: none;
+  border-color: #7aa7ff;
+  box-shadow: 0 4px 10px rgba(30, 100, 255, 0.08);
+}
+
+/* Actions row */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn.primary {
+  background: #007bff;
+  color: #fff;
+}
+.btn.primary:hover {
+  filter: brightness(0.95);
+}
+.btn.secondary {
+  background: #f1f3f5;
+  color: #222;
+}
+.btn.secondary:hover {
+  filter: brightness(0.98);
+}
+
+/* Misc */
+@media (max-width: 480px) {
+  .modal {
+    padding: 16px;
+    border-radius: 8px;
+    max-width: 95%;
+  }
+  .modal-close {
+    top: 8px;
+    right: 8px;
+    font-size: 22px;
+  }
+}
+
+/* Lightweight enter animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

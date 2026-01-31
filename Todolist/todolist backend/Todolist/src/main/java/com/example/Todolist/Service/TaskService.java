@@ -34,4 +34,41 @@ private TaskRepository taskRepository;
         responseDto.setData(allTasks);
         return responseDto;
     }
+
+    public @Nullable ResponseDto updateTask(int taskId, Task task) {
+        ResponseDto responseDto=new ResponseDto();
+        Task originalTask=taskRepository.findById(taskId).orElseThrow(()->new RuntimeException("No task found for this id"));
+        try {
+
+
+            if (!task.getTitle().isEmpty()) {
+                originalTask.setTitle(task.getTitle());
+
+            }
+            if (!task.getDescription().isEmpty()) {
+                originalTask.setDescription(task.getDescription());
+            }
+            responseDto.setSuccess(true);
+            responseDto.setData(taskRepository.save(originalTask));
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return responseDto;
+    }
+    public ResponseDto deleteTask(int taskId){
+        ResponseDto responseDto=new ResponseDto();
+        try{
+            taskRepository.deleteById(taskId);
+            responseDto.setSuccess(true);
+            responseDto.setData("Task deleted successfully");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            responseDto.setSuccess(false);
+            responseDto.setData(e.getMessage());
+        }
+       return responseDto;
+    }
 }
