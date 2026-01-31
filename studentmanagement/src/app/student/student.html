@@ -1,0 +1,50 @@
+<h1>Student Lists</h1>
+<p>{{ success }}</p>
+<table class="bordered">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Class</th>
+            <th>section</th>
+            <th>Blood Group</th>
+            <th>Actions</th>
+            <th><button (click)="showStudentForm()">Add Student</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{ student.id }}</td>
+            <td>{{ student.firstName }}</td>
+            <td>{{ student.lastName }}</td>
+            <td>{{ student.classStudent }}</td>
+            <td>{{ student.section }}</td>
+            <td>{{ student.bloodGroup }}</td>
+            <td><button (click)="deleteStudent(student)" class="delete">Delete</button></td>
+        </tr>
+    </tbody>
+
+</table>
+<div *ngIf="showform" class="formclass">
+    <form action="">
+        <div>
+            <input [(ngModel)]="studentData.firstName" type="text" name="fname" placeholder="enter first name" />
+        </div>
+        <div>
+            <input [(ngModel)]="studentData.lastName" type="text" name="lname" placeholder="enter last name" />
+        </div>
+        <div>
+            <input [(ngModel)]="studentData.classStudent" type="number" name="class" placeholder="enter class" />
+        </div>
+        <div>
+            <input [(ngModel)]="studentData.section" type="text" name="section" placeholder="enter section" />
+        </div>
+        <div>
+            <input [(ngModel)]="studentData.bloodGroup" type="text" name="bloodGroup" placeholder="enter bloodGroup" />
+        </div>
+        <div>
+            <button (click)="closeForm()" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

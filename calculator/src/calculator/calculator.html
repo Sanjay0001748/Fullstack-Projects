@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="calculator">
+        <input type="text" [(ngModel)]="display" readonly id="num" class="display">
+        <div class="grid">
+            <button class="btn" (click)="onNumberClick('7')">7</button>
+            <button class="btn" (click)="onNumberClick('8')">8</button>
+            <button class="btn" (click)="onNumberClick('9')">9</button>
+            <button class="btn operator" (click)="onOperator('/')">/</button>
+            <button class="btn" (click)="onNumberClick('4')">4</button>
+            <button class="btn" (click)="onNumberClick('5')">5</button>
+            <button class="btn" (click)="onNumberClick('6')">6</button>
+            <button class="btn operator" (click)="onOperator('*')">*</button>
+            <button class="btn" (click)="onNumberClick('1')">1</button>
+            <button class="btn" (click)="onNumberClick('2')">2</button>
+            <button class="btn" (click)="onNumberClick('3')">3</button>
+            <button class="btn operator" (click)="onOperator('-')">-</button>
+            <button class="btn" (click)="onNumberClick('0')">0</button>
+            <button class="btn" (click)="onDecimal()">.</button>
+            <button class="btn equals" (click)="onEqual()">=</button>
+            <button class="btn operator" (click)="onOperator('+')">+</button>
+        </div>
+        <button class="btn clear" (click)="clear()">Clear</button>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="d-flex">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" [class.collapsed]="collapsed">
+        <h4 class="logo">
+            <i class="bi bi-box"></i>
+            <span *ngIf="!collapsed">MyApp</span>
+        </h4>
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span *ngIf="!collapsed">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a routerLink="/users" routerLinkActive="active" class="nav-link">
+                    <i class="bi bi-people"></i>
+                    <span *ngIf="!collapsed">Users</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a routerLink="/settings" routerLinkActive="active" class="nav-link">
+                    <i class="bi bi-gear"></i>
+                    <span *ngIf="!collapsed">Settings</span>
+                </a>
+            </li>
+
+            <li class="nav-item mt-auto">
+                <a class="nav-link text-danger">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span *ngIf="!collapsed">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main class="content">
+        <button class="btn btn-outline-primary mb-3" (click)="toggle()">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <router-outlet></router-outlet>
+    </main>
+
+</div>

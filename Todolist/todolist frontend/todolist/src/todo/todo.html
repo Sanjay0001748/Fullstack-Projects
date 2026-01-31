@@ -2,18 +2,30 @@
 <div class="body">
 
     <div>
-        <form action="">
+        <form #todoForm="ngForm">
             <input [(ngModel)]="taskList.title" type="text" name="title" placeholder="enter task title" />
             <div></div>
             <input [(ngModel)]="taskList.description" type="text" name="description" placeholder="enter description" />
             <div></div>
-            <button type="submit" (click)="addTask()">Add Task</button>
+            <button type="submit" (click)="addTask(); todoForm.resetForm()">Add Task</button>
         </form>
     </div>
     <div class="taskList">
         <h1>Task Lists</h1>
-        <div *ngFor="let task of tasksCollection ">
-            <p style="font-weight: bold;font-size: 18px;">{{task.description}}</p>
+        <div *ngFor="let task of tasksCollection " style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+            <div>
+                <label>Title:</label>
+                <input type="text" [(ngModel)]="task.title" name="title-{{task.id}}" placeholder="Task Title" />
+            </div>
+            <div>
+                <label>Description:</label>
+                <input type="text" [(ngModel)]="task.description" name="desc-{{task.id}}"
+                    placeholder="Task Description" />
+            </div>
+            <button (click)="selectTask(task); updateTask()">Update</button>
+
+
+            <!-- <button (click)="selectTask(task); updateTask()">Update</button> -->
         </div>
     </div>
 </div>

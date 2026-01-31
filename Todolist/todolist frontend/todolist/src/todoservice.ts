@@ -16,4 +16,8 @@ export class Todoservice {
   getTasks(): Observable<any> {
     return this.http.get('http://localhost:8080/v2/task/get');
   }
+  updateTask(task: task): Observable<any> {
+    console.log(task);
+    return this.http.put('http://localhost:8080/v2/task/update/' + task.id, task);
+  }
 }
